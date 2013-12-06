@@ -1,0 +1,43 @@
+<h1>Listing poems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Poet</th>
+      <th>Venue</th>
+      <th>Organization</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Text</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poems.each do |poem| %>
+      <tr>
+        <td><%= poem.poet_id %></td>
+        <td><%= poem.venue_id %></td>
+        <td><%= poem.organization_id %></td>
+        <td><%= poem.title %></td>
+        <td><%= poem.date %></td>
+        <td><%= poem.text %></td>
+        <td><%= poem.city %></td>
+        <td><%= poem.state %></td>
+        <td><%= poem.country %></td>
+        <td><%= link_to 'Show', poem %></td>
+        <td><%= link_to 'Edit', edit_poem_path(poem) %></td>
+        <td><%= link_to 'Destroy', poem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Poem', new_poem_path %>

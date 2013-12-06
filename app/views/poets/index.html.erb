@@ -1,0 +1,43 @@
+<h1>Listing poets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Bio</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Tumblr</th>
+      <th>YouTube</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poets.each do |poet| %>
+      <tr>
+        <td><%= poet.first_name %></td>
+        <td><%= poet.last_name %></td>
+        <td><%= poet.email %></td>
+        <td><%= poet.website %></td>
+        <td><%= poet.bio %></td>
+        <td><%= poet.facebook %></td>
+        <td><%= poet.twitter %></td>
+        <td><%= poet.tumblr %></td>
+        <td><%= poet.youtube %></td>
+        <td><%= link_to 'Show', poet %></td>
+        <td><%= link_to 'Edit', edit_poet_path(poet) %></td>
+        <td><%= link_to 'Destroy', poet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Poet', new_poet_path %>

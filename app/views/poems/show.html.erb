@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Poet:</strong>
+  <%= @poem.poet_id %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @poem.venue_id %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @poem.organization_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @poem.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @poem.date %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @poem.text %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @poem.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @poem.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @poem.country %>
+</p>
+
+<%= link_to 'Edit', edit_poem_path(@poem) %> |
+<%= link_to 'Back', poems_path %>
