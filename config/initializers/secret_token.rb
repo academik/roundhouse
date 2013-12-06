@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RoundhousePoetry::Application.config.secret_key_base = 'faf751639f7a80f2f97fc312bbef036a63070563d2c510c38dcebef75091a773bd79031566d59259b0505ecf8607f7039271a66237cf369401cfd36ea37caac4'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+RoundhousePoetry::Application.config.secret_key_base = secure_token
