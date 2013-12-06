@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20131206192632) do
 
+  create_table "collaborations", force: true do |t|
+    t.integer  "poet_id"
+    t.integer  "poem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collaborations", ["poem_id"], name: "index_collaborations_on_poem_id"
+  add_index "collaborations", ["poet_id", "poem_id"], name: "index_collaborations_on_poet_id_and_poem_id", unique: true
+  add_index "collaborations", ["poet_id"], name: "index_collaborations_on_poet_id"
+
   create_table "poems", force: true do |t|
     t.integer  "venue_id"
     t.integer  "organization_id"
