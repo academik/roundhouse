@@ -13,9 +13,7 @@
       <th>Twitter</th>
       <th>Tumblr</th>
       <th>YouTube</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
 
@@ -31,9 +29,19 @@
         <td><%= poet.twitter %></td>
         <td><%= poet.tumblr %></td>
         <td><%= poet.youtube %></td>
-        <td><%= link_to 'Show', poet %></td>
-        <td><%= link_to 'Edit', edit_poet_path(poet) %></td>
-        <td><%= link_to 'Destroy', poet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <td>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group btn-group-xs">
+              <button type="button" class="btn btn-default">
+                <%= link_to 'Show', poet %></button>
+              <button type="button" class="btn btn-default">
+              <%= link_to 'Edit', edit_poet_path(poet) %></button>
+              <button type="button" class="btn btn-default">
+              <%= link_to 'Destroy', poet, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+              </div>
+          </div>
+        </td>   
       </tr>
     <% end %>
   </tbody>
