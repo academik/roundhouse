@@ -25,9 +25,9 @@
         <td><%= poem.venue_id %></td>
         <td><%= poem.organization_id %></td>
         <td><%= poem.title %></td>
-        <td><%= poem.link %></td>
+        <td><%= link_to truncate(poem.link, length: 15), poem.link, target: '_blank' %></td>
         <td><%= poem.date %></td>
-        <td><%= poem.text %></td>
+        <td><%= "Yes" unless poem.text == "" %></td>
         <td><%= poem.city %></td>
         <td><%= poem.state %></td>
         <td><%= poem.country %></td>

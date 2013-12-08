@@ -192,6 +192,10 @@ input {
   @extend .error;
 }
 
+.btn-primary a{
+  color: white;
+}
+
 /* microposts */
 
 .microposts {

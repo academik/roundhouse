@@ -23,12 +23,12 @@
         <td><%= poet.first_name %></td>
         <td><%= poet.last_name %></td>
         <td><%= poet.email %></td>
-        <td><%= poet.website %></td>
-        <td><%= poet.bio %></td>
-        <td><%= poet.facebook %></td>
-        <td><%= poet.twitter %></td>
-        <td><%= poet.tumblr %></td>
-        <td><%= poet.youtube %></td>
+        <td><%= link_to poet.website, poet.website %></td>
+        <td><%= "Yes" unless poet.bio == "" %></td>
+        <td><%= link_to poet.facebook, "http://facebook.com/"+poet.facebook if poet.facebook %></td>
+        <td><%= link_to poet.twitter, "http://twitter.com/"+poet.twitter if poet.twitter %></td>
+        <td><%= link_to poet.tumblr, "http://"+poet.tumblr+".tumblr.com/" if poet.tumblr %></td>
+        <td><%= link_to poet.youtube, "http://youtube.com/"+poet.youtube if poet.youtube %></td>
         
         <td>
           <div class="btn-toolbar" role="toolbar">
@@ -49,4 +49,4 @@
 
 <br>
 
-<%= link_to 'New Poet', new_poet_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'New Poet', new_poet_path %></button>
