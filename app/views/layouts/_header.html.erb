@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     
-    <%= link_to "roundhouse poetry", root_path, id: "logo", class: "navbar-brand" %>
+    <%= link_to "Roundhouse Poetry", root_path, id: "logo", class: "navbar-brand" %>
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-pills">
@@ -10,9 +10,29 @@
         <li><%= link_to "Contact",  contact_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><button type="button" class="btn btn-default navbar-btn"><%= link_to "Sign in", '#' %></button></li>
+        
+        <% if signed_in? %>
+          
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", signout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        
+        <% else %>
+        
+          <li><%= link_to "Sign in", signin_path%></li>
+        
+        <% end %>
       </ul>
-      
     </div><!-- /.navbar-collapse -->
 </nav>
 </header>

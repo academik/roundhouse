@@ -35,7 +35,6 @@ class PoetsController < ApplicationController
   # PATCH/PUT /poets/1
   # PATCH/PUT /poets/1.json
   def update
-    @poet.facebook = @poet.facebook.split("/").last if 
     if @poet.update(poet_params)
       redirect_to @poet, notice: 'Poet was successfully updated.'
     else
