@@ -19,6 +19,7 @@ class PoemsController < ApplicationController
 
   # GET /poems/1/edit
   def edit
+    # pull poets in to build select
     @poets = Poet.all
   end
 

@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :poet_id %><br>
-    <%= select_tag :poet_id, options_for_select(@poets.map{|poet| ["#{poet.first_name} #{poet.last_name}", poet.id]}, @poem.poet_id)%>
+    <%#= select_tag :poet_id, options_for_select(@poets.map { |poet| ["#{poet.first_name} #{poet.last_name}", poet.id] }, @poem.poet_id) %>
   </div>
   <div class="field">
     <%= f.label :venue_id %><br>
