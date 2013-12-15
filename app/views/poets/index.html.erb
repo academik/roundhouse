@@ -1,52 +1,14 @@
-<% provide(:title, 'Poets') %>
-<h1>Listing poets</h1>
+<% provide(:title, 'All poets') %>
+<h1>All poets</h1>
 
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Website</th>
-      <th>Bio</th>
-      <th>Facebook</th>
-      <th>Twitter</th>
-      <th>Tumblr</th>
-      <th>YouTube</th>
-      <th span="text-align:center;">Actions</th>
-    </tr>
-  </thead>
+<%= will_paginate(@things, :renderer => WillPaginate::ActionView::LinkRenderer) %>
 
-  <tbody>
-    <% @poets.each do |poet| %>
-      <tr>
-        <td><%= poet.first_name %></td>
-        <td><%= poet.last_name %></td>
-        <td><%= poet.email %></td>
-        <td><%= link_to poet.website, poet.website %></td>
-        <td><%= "Yes" unless poet.bio == "" %></td>
-        <td><%= link_to poet.facebook, "http://facebook.com/"+poet.facebook if poet.facebook %></td>
-        <td><%= link_to poet.twitter, "http://twitter.com/"+poet.twitter if poet.twitter %></td>
-        <td><%= link_to poet.tumblr, "http://"+poet.tumblr+".tumblr.com/" if poet.tumblr %></td>
-        <td><%= link_to poet.youtube, "http://youtube.com/"+poet.youtube if poet.youtube %></td>
-        
-        <td>
-          <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group btn-group-xs">
-              <button type="button" class="btn btn-default">
-                <%= link_to 'Show', poet %></button>
-              <button type="button" class="btn btn-default">
-              <%= link_to 'Edit', edit_poet_path(poet) %></button>
-              <button type="button" class="btn btn-default">
-              <%= link_to 'Destroy', poet, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-              </div>
-          </div>
-        </td>   
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="poets">
+  <% @poets.each do |poet| %>
+    <li>
+      <%= link_to poet.first_name+" "+poet.last_name, poet %>
+    </li>
+  <% end %>
+</ul>
 
-<br>
-
-<button type="button" class="btn btn-primary"><%= link_to 'New Poet', new_poet_path %></button>
+<%= will_paginate(@things, :renderer => WillPaginate::ActionView::LinkRenderer) %> 

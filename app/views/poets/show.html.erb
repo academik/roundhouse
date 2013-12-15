@@ -1,47 +1,49 @@
-<p>
-  <strong>First name:</strong>
-  <%= @poet.first_name %>
-</p>
+<div class="row">
+  <div id="poet-sidebar-container" class="col-md-4">
+    <div id="poet-sidebar">
+      <h1><%= @poet.first_name %> <%= @poet.last_name %></h1>
+      <div class="poet-sidebar-section">
+        <p><%= social_links(@poet) %></p>
+        <p><%= link_to truncate(@poet.website, length: 30), @poet.website, target: "_blank" %></p>
+      </div>
+      <div class="poet-sidebar-section">
+        <h2>BIO</h2>
+        <%= @poet.bio %>
+      </div>
+      <div class="poet-sidebar-section">
+        <h2>TOUR</h2>
+          <ul>
+            <li>
+              <p>
+                12/3 - Bar 13<br>
+                NYC</p>
+            </li>
+            <li>
+              <p>
+                12/5 - Hank's<br>
+                Hartford, CT
+              </p>
+            </li>
+          </ul>
+      </div> <!-- poet-sidebar-section -->
+    </div> <!-- poet-sidebar -->
+  </div> <!-- poet-sidebar-container -->
 
-<p>
-  <strong>Last name:</strong>
-  <%= @poet.last_name %>
-</p>
+  <div id="poet-poems-container" class="col-md-7 col-md-offset-1">
+    
+    <% @poet.poems.each do |poem| %>
+      <div class="poem-container">
+        <h2><%= poem.title %></h2>
+        <h3><%= "Uploaded on #{poem.date.strftime('%B %e, %Y')};" %></h3>
+        <div class="poem-player">  
+          <%= raw(poem.embed_code) %>
+        </div>
+      </div> <!-- poem-container -->
+    <% end %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @poet.email %>
-</p>
+  </div> <!-- poet-poems-container -->
+</div> <!-- row -->
 
-<p>
-  <strong>Website:</strong>
-  <%= @poet.website %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @poet.bio %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= link_to @poet.facebook, "http://facebook.com/"+@poet.facebook if @poet.facebook %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= link_to @poet.twitter, "http://twitter.com/"+@poet.twitter if @poet.twitter %>
-</p>
-
-<p>
-  <strong>Tumblr:</strong>
-  <%= link_to @poet.tumblr, "http://"+@poet.tumblr+".tumblr.com/" if @poet.tumblr %>
-</p>
-
-<p>
-  <strong>YouTube:</strong>
-  <%= link_to @poet.youtube, "http://youtube.com/"+@poet.youtube if @poet.youtube %>
-</p>
-
-<%= link_to 'Edit', edit_poet_path(@poet) %> |
-<%= link_to 'Back', poets_path %>
+  <div class="pull-left">
+    <%= link_to 'Back', poets_path %>
+  </div>

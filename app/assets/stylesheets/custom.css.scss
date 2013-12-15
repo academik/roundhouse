@@ -5,7 +5,7 @@ $grayMediumLight: #eaeaea;
 $grayLight: #eaeaea;
 $grayLighter: #eaeaea;
 $blue: blue;
-$seaGreen: #34E8E5;
+$seaGreen: #00E3CC;
 $collarBrown: #40280F;
 $moleskineRed: #BF2310 ;
 
@@ -75,11 +75,15 @@ p {
   background-color: $seaGreen;
 }
 
+.navbar-right li a {
+  padding-right: 30px;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $collarBrown;
+  color: $moleskineRed;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 11px;
@@ -92,8 +96,8 @@ p {
 }
 
 
-/* Users index */
-.users{
+/* Poets index */
+.poets, .poems{
   list-style: none;
   margin: 0;
   li {
@@ -104,7 +108,6 @@ p {
       border-bottom: 1px solid $grayLighter;
     }
   }
-
 }
 
 /* sidebar */

@@ -3,6 +3,9 @@ class Poet < ActiveRecord::Base
 
 	before_save :strip_url_tags
 
+	validates :first_name,		length: { maximum: 20 } 
+	validates :last_name, 		length: { maximum: 20 } 
+
 	def strip_url_tags
 		self.facebook 	= self.facebook.split("/").last if self.facebook
 		self.twitter 	= self.twitter.split("/").last if self.twitter

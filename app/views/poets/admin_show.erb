@@ -1,0 +1,47 @@
+<p>
+  <strong>First name:</strong>
+  <%= @poet.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @poet.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @poet.email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @poet.website %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @poet.bio %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= link_to @poet.facebook, "http://facebook.com/"+@poet.facebook if @poet.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= link_to @poet.twitter, "http://twitter.com/"+@poet.twitter if @poet.twitter %>
+</p>
+
+<p>
+  <strong>Tumblr:</strong>
+  <%= link_to @poet.tumblr, "http://"+@poet.tumblr+".tumblr.com/" if @poet.tumblr %>
+</p>
+
+<p>
+  <strong>YouTube:</strong>
+  <%= link_to @poet.youtube, "http://youtube.com/"+@poet.youtube if @poet.youtube %>
+</p>
+
+<%= link_to 'Edit', edit_poet_path(@poet) %> |
+<%= link_to 'Back', poets_path %>

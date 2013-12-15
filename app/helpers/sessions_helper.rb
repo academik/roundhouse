@@ -16,6 +16,14 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	def admin?
+		if signed_in?
+			@current_user.admin
+		else
+			false
+		end
+	end # --- def admin? --- 
+
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)
@@ -33,6 +41,24 @@ module SessionsHelper
 		#match in the database if the @current_user variable is empty. 
 		remember_token = User.encrypt(cookies[:remember_token])
 		@current_user ||= User.find_by(remember_token: remember_token)
+	end
+
+	def current_user?(user)
+		# returns false unless parameter user matches the current user
+		user === current_user
+	end
+
+	def redirect_back_or(default)
+		#unless :return_to is nil, go to the previously requested page
+		#if it is nil, go to the parameter url then delete the session variable
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+	end
+
+	def store_location
+	  # get the requested url if it's a GET request and put it
+	  # into the session variable :return_to
+	  session[:return_to] = request.url if request.get?
 	end
 
 end

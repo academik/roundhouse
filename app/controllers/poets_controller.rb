@@ -4,12 +4,16 @@ class PoetsController < ApplicationController
   # GET /poets
   # GET /poets.json
   def index
-    @poets = Poet.all
+    @poets = Poet.reorder("first_name ASC").paginate(page: params[:page], :per_page => 25)
   end
 
   # GET /poets/1
   # GET /poets/1.json
   def show
+  end
+
+  def admin
+    @poets = Poet.all
   end
 
   # GET /poets/new

@@ -1,3 +1,68 @@
 // Place all the styles related to the Poets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$moleskineRed: #BF2310 ;
+
+/* LEFT SIDE OF SCREEN - POET's INFORMATION*/
+#poet-sidebar-container{
+	padding:20px;
+}
+
+#poet-sidebar{
+	width:360px;
+	text-align:left;
+	align:left;
+	h1{
+		font-size:3em;
+		color:black;
+		margin-bottom: 10px;
+		text-align:left;
+	}
+	h2{
+		font-weight: bold;
+		font-size: 1.5em;
+		text-align:left;
+		color:$moleskineRed;
+		margin-bottom: 10px;
+	}
+}
+
+.poet-sidebar-section{
+	width:		360px;
+	padding:	0px;
+	margin:		20px 0px;
+	font-size: 	12pt; 
+}
+
+/* RIGHT SIDE OF SCREEN - POET'S POEMS */
+
+#poet-poems-container{
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.poem-container{
+	h2{
+		font-size: 2em;
+		color:black;
+		text-align: left;
+		line-height: 1;
+		margin-bottom:0px;
+	}
+	h3{
+		font-color: #eaeaea;
+		font-size: 1em;
+		margin-bottom: 20px;
+		margin-top:5px
+	}
+}
+
+
+.poem-player{	
+}
+
+
+.back{
+	clear:both;
+}

@@ -13,6 +13,7 @@ RoundhousePoetry::Application.routes.draw do
   match '/signup',  to: 'users#new',              via: 'get'
   match '/signin',  to: 'sessions#new',           via: 'get'
   match '/signout', to: 'sessions#destroy',       via: 'delete'
+  match '/poets_admin', to: 'poets#admin',        via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
