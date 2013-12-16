@@ -8,6 +8,7 @@ gem 'bcrypt-ruby',    '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'gibbon', '1.0.4'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.8'
