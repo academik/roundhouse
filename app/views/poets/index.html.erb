@@ -1,7 +1,7 @@
 <% provide(:title, 'All poets') %>
 <h1>All poets</h1>
 
-<%= will_paginate(@things, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+<%= will_paginate %>
 
 <ul class="poets">
   <% @poets.each do |poet| %>
@@ -11,4 +11,4 @@
   <% end %>
 </ul>
 
-<%= will_paginate(@things, :renderer => WillPaginate::ActionView::LinkRenderer) %> 
+<%= will_paginate %> 

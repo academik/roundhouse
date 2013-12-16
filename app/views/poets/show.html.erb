@@ -4,7 +4,7 @@
       <h1><%= @poet.first_name %> <%= @poet.last_name %></h1>
       <div class="poet-sidebar-section">
         <p><%= social_links(@poet) %></p>
-        <p><%= link_to truncate(@poet.website, length: 30), @poet.website, target: "_blank" %></p>
+        <p><%= link_to truncate(@poet.website, length: 30), @poet.website, target: "_blank" unless @poet.website.nil? %></p>
       </div>
       <div class="poet-sidebar-section">
         <h2>BIO</h2>
@@ -34,7 +34,7 @@
     <% @poet.poems.each do |poem| %>
       <div class="poem-container">
         <h2><%= poem.title %></h2>
-        <h3><%= "Uploaded on #{poem.date.strftime('%B %e, %Y')};" %></h3>
+        <h3><%= "Uploaded on #{poem.date.strftime('%B %e, %Y')};" unless poem.date.nil? %></h3>
         <div class="poem-player">  
           <%= raw(poem.embed_code) %>
         </div>

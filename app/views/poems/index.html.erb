@@ -6,66 +6,9 @@
 <ul class="poems">
   <% @poems.each do |poem| %>
     <li>
-      <%= link_to poem.title, poem %> by <%= link_to "#{poem.poet.first_name} #{poem.poet.last_name}", poem.poet%>
+      <%= link_to poem.title, poem %> by <%= link_to "#{poem.poet.first_name} #{poem.poet.last_name}", poem.poet unless poem.poet.nil?%>
     </li>
   <% end %>
 </ul>
 
 <%= will_paginate %> 
-
-<!--
-<% provide(:title, 'Poems') %>
-<h1>Listing poems</h1>
-
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Poet</th>
-      <th>Venue</th>
-      <th>Organization</th>
-      <th>Title</th>
-      <th>Link</th>
-      <th>Embed Code</th>
-      <th>Date</th>
-      <th>Text</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Country</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @poems.each do |poem| %>
-      <tr>
-        <td><%= poem.poet_id %></td>
-        <td><%= poem.venue_id %></td>
-        <td><%= poem.organization_id %></td>
-        <td><%= poem.title %></td>
-        <td><%= link_to truncate(poem.link, length: 15), poem.link, target: '_blank' %></td>
-        <td><%= truncate(poem.embed_code) %></td>
-        <td><%= poem.date %></td>
-        <td><%= "Yes" unless poem.text == "" %></td>
-        <td><%= poem.city %></td>
-        <td><%= poem.state %></td>
-        <td><%= poem.country %></td>
-        <td>
-          <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group btn-group-xs">
-              <button type="button" class="btn btn-default">
-                <%= link_to 'Show', poem %></button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'Edit', edit_poem_path(poem) %></button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'Destroy', poem, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-            </div>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Poem', new_poem_path %> -->

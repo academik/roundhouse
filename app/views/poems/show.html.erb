@@ -1,57 +1,34 @@
-<p>
-  <strong>Poet:</strong>
-  <%= @poem.poet_id %>
-</p>
+<div class="row">
+  <div id="poem-player"class="col-md-12">
+    <%= raw(@poem.embed_code) %>
+  </div> <!-- poem player -->
+</div> <!-- row -->
+<div class="row">
 
-<p>
-  <strong>Venue:</strong>
-  <%= @poem.venue_id %>
-</p>
-
-<p>
-  <strong>Organization:</strong>
-  <%= @poem.organization_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @poem.title %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= link_to @poem.link, @poem.link, target: '_blank' %>
-</p>
-
-<p>
-  <strong>Embed Code:</strong>
-  <%= @poem.embed_code %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @poem.date %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @poem.text %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @poem.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @poem.state %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @poem.country %>
-</p>
-
-<%= link_to 'Edit', edit_poem_path(@poem) %> |
-<%= link_to 'Back', poems_path %>
+  <div id="poem-info-container">
+    <div id="poem-info-description" class="col-md-6">
+      <h1><%= @poem.title %></h1>
+      <h3><%= "Uploaded on #{@poem.date.strftime('%B %e, %Y')}" unless @poem.date.nil? %></h3>
+      <h2>TEXT</h2>
+      <p>
+        <%= @poem.text %>
+      </p>
+    </div> 
+    <div id="poem-info-share" class="col-md-2">
+      <h2>SHARE THIS!</h2>
+      <p>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pinterest_large' displayText='Pinterest'></span>
+        <span class='st_email_large' displayText='Email'></span>
+      </p>
+    </div> <!-- poem-info-share -->
+    <div id="poem-info-more-poems" class="col-md-4">
+      <h2>MORE POEMS</h2>
+      <%= link_to "What I Know", "http://localhost:3000/poems/29" %>
+    </div> <!-- poem-info-more-poems-->
+    <!-- poem-info-description -->
+  </div> <!-- poem-info-container -->
+</div> <!-- row -->
