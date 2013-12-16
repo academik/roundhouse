@@ -4,7 +4,7 @@ class PoemsController < ApplicationController
   # GET /poems
   # GET /poems.json
   def index
-    @poems = Poem.all
+    @poems = Poem.reorder("title ASC").paginate(page: params[:page], :per_page => 25)
   end
 
   # GET /poems/1
